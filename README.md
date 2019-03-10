@@ -6,11 +6,11 @@ Here I've gathered all my LaTeX templates alongside a cheat-sheet with everythin
 
 ## Table of contents
 
-- [LaTeX](#project-labembeddeddesign1)
+- [LaTeX](#latex)
   - [Table of contents](#table-of-contents)
-  - [Terms of Use](#1---git-repo-structure)
-  - [1 - Templates](#2---documentation)
-    - [1.1 - `template-lab-report`](#21---file-structure)
+  - [Terms of Use](#terms-of-use)
+  - [1 - Templates](#1---templates)
+    - [1.1 - `template-lab-report`](#11---template-lab-report)
 
 ------
 
