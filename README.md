@@ -1,6 +1,6 @@
 # LaTeX
 
-Here I've gathered all my LaTeX templates alongside a cheat-sheet with everything I've ever used in documents.
+Here I've gathered all my LaTeX templates alongside a cheat-sheet (TODO) with everything I've ever used in documents.
 
 ------
 
