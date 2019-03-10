@@ -1,0 +1,245 @@
+
+% ----------------------------------------------------------------------------------------
+% Title: KULeuven-like LaTeX Lab-report template
+% Author: Brecht Van Eeckhoudt
+%
+% Version 1.0
+% Find the latest version at: https://github.com/Fescron/LaTeX
+%
+% Terms of Use: This document is licensed under a CreativeCommons 
+% "Attribution-NonCommercial-ShareAlike 4.0 International" licence (CC BY-NC-SA 4.0).
+% Find more info at: https://creativecommons.org/licenses/by-nc-sa/4.0/
+% ----------------------------------------------------------------------------------------
+
+
+% ----------------------
+% --- Title - Author ---
+% ----------------------
+
+\newcommand{\mytitle}{Titel} % chktex 8
+\newcommand{\mysubtitle}{Labo X} % chktex 8
+\newcommand{\myauthor}{Brecht Van Eeckhoudt} % chktex
+\newcommand{\mycourse}{Vak -- Labo} % chktex 8
+\newcommand{\myclass}{MELICTE} % chktex 8
+
+
+% -----------------------------------
+% --- Basic settings and packages ---
+% -----------------------------------
+
+\documentclass[11pt,a4paper,twoside]{article} % "twoside" for double sided printing
+\usepackage[a4paper,margin=3cm,marginparwidth=2.5cm]{geometry}   % Paper size and margins
+\usepackage[dutch]{babel}                   % Culturally-determined typographical rules
+\usepackage[utf8x]{inputenc}                % Input accents characters from keyboard
+\usepackage{amsmath}                        % Math stuff
+
+\usepackage{graphicx}                       % Insertion of pictures
+\usepackage{float}							% [H]
+\usepackage{booktabs}						% Toprule, midrule, bottomrule
+\usepackage{wasysym}			            % \Square command
+\usepackage{marvosym}                       % \Male \Female $\EUR$
+\usepackage{MnSymbol}                       % \diameter
+\usepackage[electronic]{ifsym}			    % \RaisingEdge
+\usepackage{soul}							% Highlight with \hl{}
+
+\usepackage[colorinlistoftodos]{todonotes}  % Todo notes
+\usepackage[T1]{fontenc}                    % All underscores use ttt font
+
+\usepackage{hyperref}                       % Hyperlinks in table of contents and links
+\def\UrlBreaks{\do\/ \do-} % chktex 21		% Let Hyperlinks break at / and -
+\renewcommand\UrlFont{\color{blue}\ttfamily} % Change URL style and color to blue
+\usepackage{url}							% Let URL's break at certain points
+
+\usepackage[labelfont=bf]{caption}          % Caption labels in bold
+\setlength{\parindent}{0em}                 % No new paragraph indentation
+\setlength{\parskip}{1em}                   % Space between paragraphs
+
+\usepackage[nottoc,notlot,notlof]{tocbibind} % Make references show up in table of contents
+\usepackage{tocloft}                        % Add dots to all lines in table of contents
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+
+% -----------------------
+% --- Custom commands ---
+% -----------------------
+% \link{https://...}
+\DeclareRobustCommand{\link}[1]{{\underline{\textcolor{blue}{\texttt{#1}}}}} % Underline in blue
+
+% \hl{} \hlcyan{}
+\DeclareRobustCommand{\hlcyan}[1]{{\sethlcolor{cyan}\hl{#1}}} % Highlight in cyan
+
+
+% -----------------------
+% --- Header & Footer ---
+% -----------------------
+
+\usepackage{lastpage}                       % Last page reference
+\usepackage{fancyhdr}                       % Fancy headers & footers
+\pagestyle{fancy}                           % Enable fancy headers
+\fancyhf{}                                  % Clear all headers and footers
+\renewcommand{\headrulewidth}{1pt}          % Enable header line
+\renewcommand{\footrulewidth}{1pt}          % Enable footer line
+\fancyhead[C]{\mycourse{}: \mysubtitle{}: \mytitle} % Set new header center
+\fancyfoot[LO,RE]{\myauthor} 
+% Set new page numbering left even right oneven
+\fancyfoot[LE,RO]{\thepage{} van~\pageref{LastPage}} 
+% Redefine plain style, it is used for pages with new chapters
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyfoot[LE,RO]{\thepage{} van~\pageref{LastPage}}
+    \fancyfoot[LO,RE]{\myauthor} 
+    \fancyhead[C]{\mycourse{}: \mysubtitle{}: \mytitle} 
+    \renewcommand{\headrulewidth}{1pt}
+    \renewcommand{\footrulewidth}{1pt}
+}
+
+
+% -----------------------------
+% --- Other useful packages ---
+% -----------------------------
+
+\usepackage{minted}                         % Syntax highlighting
+\setminted[vhdl]{linenos=true,frame=lines,fontsize=\footnotesize,framesep=2mm,tabsize=3,breaklines=true}
+
+\usepackage{tikz}							% Block diagram
+\usetikzlibrary{positioning}				% Block diagram
+
+\usepackage{tcolorbox}  					% Colored boxes (methods, ...)
+\tcbset{toptitle = 1mm, bottomtitle = 1mm, fonttitle = \bfseries} % Slightly more space above and below title, bold title
+
+%\usepackage{chngcntr}						% Alternate figure and table numbering
+%\counterwithin{figure}{section}			% Label figures by section
+%\counterwithin{table}{section}				% Label tables by section
+
+%\usepackage[none]{hyphenat}					% Disable all hyphenation in entire text
+
+\usepackage{multicol}						% Multiple columns
+\usepackage{multirow}                       % Multiple rows
+\setlength{\columnsep}{1cm}					% Set column separation space
+\setlength{\columnseprule}{1pt}				% Enable column separation ruler
+
+
+% -----------------
+% --- Debugging ---
+% -----------------
+
+%\usepackage[inline]{showlabels}             % Show the labels (debugging) https://www.sharelatex.com/blog/2012/01/31/keep-track-of-your-labels-with-showlabels.html
+
+%\usepackage{showframe}						% Debugging of frames
+% Put \fbox{} around minipage for debugging!
+
+%\usepackage{lineno}                         % Number every line
+%\linenumbers                                % Number every line
+
+
+% -------------------------
+% --- BEGIN OF DOCUMENT ---
+% -------------------------
+
+\begin{document}
+
+% ------------------
+% --- Title page ---
+% ------------------
+
+\begin{titlepage}																			
+	\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Change thickness of lines
+
+	\center{} % Center everything on the page
+
+	\includegraphics[scale=0.55]{img/logo_kuleuven.png}\\
+	\textsc{\large faculty of engineering technology\\-- gent --}\\[2cm]
+
+	\textsc{\LARGE \MakeUppercase{\mycourse}}\\[0.25cm] % Major heading - course name
+	\textsc{\Large \MakeLowercase{\mysubtitle}}\\[0.25cm] % Minor heading - course title
+
+	\HRule \\[0.7cm] % chktex 1
+	{ \huge \bfseries \mytitle}	\\[0.4cm] % Title of your document
+	\HRule \\[1.4cm] % chktex 1
+
+	\Large \myauthor \\[0.4cm] % chktex 1
+	\large \myclass
+	\\[1.4cm]
+
+	{\Large \today }\\[1.4cm] % Date, change the \today to a set date if you want to be precise
+
+	%\vfill % Fill the rest of the page with whitespace						
+\end{titlepage}
+
+
+% -------------------------
+% --- Table of contents ---
+% -------------------------
+
+\tableofcontents
+\vspace{1cm}
+
+
+% ----------------------------------
+% >>>>> START ADDING TEXT HERE <<<<<
+%-----------------------------------
+
+\section{Doelstellingen}
+
+\dots
+
+\clearpage
+
+% ----------------------------------------------------------------------------------------
+
+\section{Achtergrond}
+
+\dots
+
+\clearpage
+
+% ----------------------------------------------------------------------------------------
+
+\section{Opgave/probleemstelling}
+
+\dots
+
+\clearpage
+
+% ----------------------------------------------------------------------------------------
+
+\section{Praktische uitwerking}
+
+\dots
+
+\clearpage
+			
+% ----------------------------------------------------------------------------------------
+			
+			
+\section{Besluit}
+
+\subsection{Wat hebben we verwezenlijkt?}
+
+\dots
+
+
+\subsection{Wat kan er beter? (denk verder dan de opgave)}
+
+\dots
+
+
+\subsection{Hoe kunnen we dit tot stand brengen?}
+
+\dots
+
+\clearpage
+						
+% --------------------
+% --- Bibliography ---
+% --------------------
+			
+\begin{thebibliography}{9} % "9" for numeric labels
+	\bibitem{mealy-wiki} Wikipedia, \textit{Mealy machine}, \\
+	\url{https://en.wikipedia.org/wiki/Mealy_machine}
+
+\end{thebibliography}
+
+	
+
+\end{document}
